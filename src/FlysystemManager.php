@@ -98,7 +98,7 @@ class FlysystemManager extends AbstractManager
      */
     protected function getConfigName()
     {
-        return 'graham-campbell/flysystem';
+        return 'flysystem';
     }
 
     /**
@@ -113,8 +113,8 @@ class FlysystemManager extends AbstractManager
     public function getConnectionConfig($name)
     {
         $name = $name ?: $this->getDefaultConnection();
-
-        $connections = $this->config->get($this->getConfigName().'::connections');
+        
+        $connections = $this->config->get($this->getConfigName().'.connections');
 
         if (!is_array($config = array_get($connections, $name)) && !$config) {
             throw new \InvalidArgumentException("Adapter [$name] not configured.");
